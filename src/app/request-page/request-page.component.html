@@ -1,0 +1,33 @@
+<div class="layout">
+  <p>
+    Molimo popunite sva polja kako biste dobili procjenu i potvrdili svoj
+    pregled.
+  </p>
+
+  <form [formGroup]="requestForm" (ngSubmit)="handleSubmit()">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Ime</mat-label>
+      <input matInput formControlName="fName" id="fName"/>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Prezime</mat-label>
+      <input matInput formControlName="lName" id="lName" />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" id="email"/>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Broj zdravstvenog osiguranja</mat-label>
+      <input matInput formControlName="ssn" id="ssn" />
+    </mat-form-field>
+    <p>Simptomi (molimo opisite Vase simptome sto bolje mozete):</p>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Simptomi</mat-label>
+      <input matInput formControlName="symptoms" id="symptoms" />
+    </mat-form-field>
+    <button mat-button color="primary" class="button" id="submitButton">
+      Posalji
+    </button>
+  </form>
+</div>

@@ -1,0 +1,17 @@
+.number {
+  color: lightblue;
+  font-size: 30px;
+  margin: 0 auto;
+}
+
+.layout {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+p {
+  margin-top: 10px;
+}
