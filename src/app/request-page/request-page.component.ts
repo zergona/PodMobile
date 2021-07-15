@@ -27,7 +27,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 export class RequestPageComponent implements OnInit {
 
-  baseURL="http://localhost:8080/"
+  baseURL="https://pregledondemand.herokuapp.com/"
   result = ''
   requestForm = this.formBuilder.group({
     fName: '',
