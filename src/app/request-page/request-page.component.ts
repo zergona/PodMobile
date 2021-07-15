@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouteReuseStrategy } from '@angular/router';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, FormArray  } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, FormArray, FormGroupDirective, NgForm, Validators  } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-
+import {ErrorStateMatcher} from '@angular/material/core';
 
 export interface Request{
   fName: '',
@@ -13,13 +12,21 @@ export interface Request{
   domZdravlja: 0,
   symptoms: ''
 };
-
+/** Error when invalid control is dirty, touched, or submitted. */
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
 @Component({
   selector: 'app-request-page',
   templateUrl: './request-page.component.html',
   styleUrls: ['./request-page.component.css'],
 })
+
 export class RequestPageComponent implements OnInit {
+
   baseURL="http://localhost:8080/"
   result = ''
   requestForm = this.formBuilder.group({
